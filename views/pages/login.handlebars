@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<!--html-->
+<body id="body">
+    
+  <div id="header">
+
+  </div>
+
+    <main id="meio">
+        <div id="container">
+
+            <div id="form-image">
+        <img id="img-cadastro" src="img/Sunenergy.svg" alt="">
+            </div>
+            <div id="form">
+                <form action="/user/login" method="POST">
+                    <div id="form-header">
+                        <div id="titulo-form">
+                            <h1>Entrar</h1>
+                        </div>
+                        
+                    </div>
+                    <div id="input-group">
+                       
+
+                        <div id="input-box">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="Digite seu E-mail" required>
+                        </div>
+
+                        <div id="input-box">
+                            <label for="password">Senha</label>
+                            <input id="password" type="password" name="password" placeholder="Digite sua Senha" required>
+                        </div>
+
+                    </div>
+                    <div id="continue-btn">
+                        <button type="submit"><a href="#">Continuar</a> </button>
+
+                    </div>
+                     
+                </form>
+                <div id="form-bot">
+                <a href="/user/sigin">Ainda não tem uma conta? Clique aqui.</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer">
+
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+body, ul{
+    margin: 0;
+    padding: 0;
+   
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+a:hover {
+    background:rgba(0, 0, 0, .05);
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#header-img {
+    height: 90px;
+}
+
+#cabecalho {
+    box-sizing: border-box;
+    height: 90px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+#menustorm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#menustorm button i{
+    font-size: xx-large;
+}
+
+#cadamenu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    
+}
+
+#cadamenu a {
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+#botoesmenu {
+display: flex;
+gap: .6rem;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+#btn-perfil {
+width: auto;
+font-size: 1rem;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+align-items: center;
+background-color: #083358;
+color: #fff;
+font-family: Arial, Helvetica, sans-serif;
+font-size: medium;
+}
+
+#btn-opt {
+    width: 120px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border: none;
+    background: none;
+    cursor: pointer;
+    
+}
+
+#btn-opt:hover{
+    background-color: rgba(0, 0, 0, .05);
+}
+
+#opperfil{
+    display: flex;
+    list-style: none;
+    justify-content: right;
+    width: 100%;
+    transition: .6s;
+    z-index: 1000;
+    
+   
+}
+
+ #opuser {
+    display: flex;
+    list-style: none;
+    margin: none;
+    padding: none;
+    transition: .6s;
+    z-index: 1000;
+   
+ }
+
+#pagperfil {
+    display: none;
+    list-style: none;
+    gap: 0.5rem;
+    width: 220px;
+    z-index: 1000;
+    position: absolute;
+    padding: .5rem;
+    transition: .6s;
+    flex-direction: column;
+    top: 94px;
+     background: #f8f5f5;
+     border-radius: 2px;
+}
+
+#paguser{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 94px;
+    left: 0px;
+   height: 0px;
+   z-index: 1000;
+    transition: .6s;
+list-style: none;
+    overflow-y: hidden;
+}
+
+
+#pagperfil a {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    gap: 8px;
+}
+
+#paguser a{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    gap: 8px;
+}
+
+#paguser p{
+    color: white;
+    display: flex;
+    justify-content: left;
+    padding: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    gap: 8px;
+}
+
+#opperfil.active #pagperfil{
+display: flex;
+height: 6.8rem;
+background: #f8f5f5;
+overflow-y: auto;
+transition: .6s;
+}
+
+#opuser.active #paguser{
+    height: calc(100vh - 94px);
+    visibility: visible;
+    overflow-y: scroll;
+    width: 25%;
+    background: #083358;
+}
+
+#line {
+    margin-bottom: 1rem;
+   height: 4px;
+   width: 100%;
+    background: linear-gradient(90deg, #FFD717 4.62%, #083358 30.61%);
+}
+
+@media (max-width: 740px) {
+body, ul {
+    margin: 0;
+    padding: 0;
+    
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+#cadamenu  {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 94px;
+    right: 0px;
+   height: 0px;
+   z-index: 1000;
+    transition: .6s;
+    visibility: hidden;
+    overflow-y: hidden;
+}
+
+
+
+#menuscabecalho.active #cadamenu  {
+    height: calc(100vh - 94px);
+    visibility: visible;
+    overflow-y: auto;
+    background: #083358;
+}
+
+#cadamenu a{
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+}
+
+#opperfil.active #pagperfil { 
+    height: 7rem;
+     background-color: #083358;
+     overflow-y: auto;
+    }
+
+    #opuser.active #paguser{
+        height: calc(100vh - 94px);
+        visibility: visible;
+        overflow-y: auto;
+        background: #083358;
+        width: 100%;
+    }
+#btn-mobile {
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: .5rem;
+    background-color: #083358;
+    color: #fff;
+}
+
+#icon {
+    width: 30px;
+    border-top: 2px solid;
+    transition: .1s;
+}
+
+#icon::after, #icon::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: .3s;
+    position: relative;
+}
+
+#menuscabecalho.active #icon {
+    border-top-color: transparent;
+}
+
+#menuscabecalho.active #icon::before {
+    transform: rotate(135deg);
+} 
+
+#menuscabecalho.active #icon::after {
+    transform: rotate(-135deg);
+    top: -7px;
+} 
+
+}
+
+@media (max-width: 380px) {
+    #cabecalho {
+        padding: none;
+        justify-content: space-evenly;
+    }
+    #header-img {
+        height: 40px;
+        
+    }
+}

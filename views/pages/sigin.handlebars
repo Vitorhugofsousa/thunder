@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar-se</title>
+    <link rel="stylesheet" href="/css/sigin.css">
+    <link rel="stylesheet" href="/css/msg.css">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+</head>
+<body id="body">
+  <nav id="header"></nav>
+  <!--HTML-->
+    <main id="meio">
+
+  {{#each erros}}
+  <div id="error">{{texto}}</div>
+  {{else}}
+  {{/each}}
+  
+
+
+        <div id="container">
+
+            <div id="form-image">
+        <img id="img-cadastro" src="/img/Sunenergy.svg" alt="">
+            </div>
+            <div id="form">
+                <!--FORMULÁRIO DE CADASTRO-->
+                <div id="form-header">
+                        <div id="titulo-form">
+                            <h1>Cadastrar-se</h1>
+                        </div>
+                        <div id="login-btn">
+                        <a href="/user/login"><button>Entrar</button></a>
+                        </div>
+                    </div>
+                <form action="" method="POST">
+                <div id="scrollform">
+                    <div id="input-group">
+                        <div id="input-box">
+                            <label for="firstname">Primeiro Nome</label>
+                            <input id="firstname" type="text" name="firstname" placeholder="Digite seu Primeiro Nome" required>
+                        </div>
+
+                        <div id="input-box">
+                            <label for="lastname">Sobrenome</label>
+                            <input id="lastname" type="text" name="lastname" placeholder="Digite seu Sobrenome" required>
+                        </div>
+
+                        <div id="input-box">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="Digite seu E-mail" required>
+                        </div>
+
+
+                        <div id="input-box">
+                            <label for="data">Sua data de Nascimento</label>
+                            <input id="data" type="date" name="data" required>
+                        </div>
+
+                               <div id="input-box">
+                            <label for="localizacaoe">Estado</label>
+                          <select id="Estado" name="localizacaoe">
+	                	<option>Selecionar Estado</option>
+	                    </select>
+                        </div>
+
+                        <div id="input-box">
+                         <label for="localizacaoc">Cidade</label>
+	                    <select id="Cidade" name="localizacaoc">
+	                	<option>Selecionar Cidade</option>
+	                    </select>
+                        </div>
+
+
+                        <div id="input-box">
+                            <label for="number">Telefone</label>
+                            <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required>
+                        </div>
+
+                        <div id="input-box">
+                            <label for="password">Senha</label>
+                            <input id="password" type="password" name="password" placeholder="Digite sua Senha" required>
+                        </div>
+
+                        <div id="input-box">
+                            <label for="password">Confime sua Senha</label>
+                            <input id="passwordconfirm" type="password" name="confirmpassword" placeholder="Confirme sua Senha" required>
+                        </div>
+
+                    </div>
+                    </div>
+                    <div id="continue-btn">
+
+                        <button type="submit"><a href="#">Continuar</a></button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        
+    </main>
+<script>
+	$(document).ready(function(){
+		carregar_json('Estado');
+		function carregar_json(id, cidade_id){
+			var html = '';
+
+			$.getJSON('https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json', function(data){
+				html += '<option>Selecionar '+ id +'</option>';
+				console.log(data);
+				if(id == 'Estado' && cidade_id == null){
+					for(var i = 0; i < data.estados.length; i++){
+						html += '<option value='+ data.estados[i].sigla +'>'+ data.estados[i].nome+'</option>';
+					}
+				}else{
+					for(var i = 0; i < data.estados.length; i++){
+						if(data.estados[i].sigla == cidade_id){
+							for(var j = 0; j < data.estados[i].cidades.length; j++){
+								html += '<option value='+ data.estados[i].cidades[j] +'>'+data.estados[i].cidades[j]+ '</option>';
+							}
+						}
+					}
+				}
+
+				$('#'+id).html(html);
+			});
+			
+		}
+
+		$(document).on('change', '#Estado', function(){
+			var cidade_id = $(this).val();
+			console.log(cidade_id);
+			if(cidade_id != null){
+				carregar_json('Cidade', cidade_id);
+			}
+		});
+
+	});
+</script>
+</body>
+</html>
+
+

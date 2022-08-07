@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+   
+    
+</head>
+<body id="body">
+    <header id="cabecalho">
+        <nav id="menustorm">
+            {{#if user}}
+            <button aria-label="perfil" id="btn-opt" aria-haspopup="true"
+                aria-controls="opcoes-de-usuario" aria-expanded="false"><i class='bx bx-menu'></i>
+                <span id="icon-perfil"></span>
+            </button>
+              <nav id="opuser">
+            <ul id="paguser">
+              <p class="span-navpro"><i class='bx bxs-home-alt-2'></i> Home</p>
+        <ul class="btn-profile">
+            <a href="/"><i class='bx bx-home-alt-2'></i><li> Home</li></a>
+
+
+            <p class="span-navpro"><i class='bx bx-spreadsheet' ></i> Seus Orçamentos</p>
+        <ul class="btn-profile">            
+            <a href="/user/orcamentos-recentes"> <i class="bx bx-list-minus"></i><li> Lista de Orçamentos Recentes</li></a>
+            <a href="/user/memoriais-descritivos"> <i class="bx bx-list-minus"></i><li> Lista de Memoriais Descritivos </li></a>
+            <a href="/user/nova-cartilha"><i class='bx bx-edit' ></i><li>Gerar novo Memorial Descritivo</li></a>
+            <a href="/user/gerar-novo-orcamento"><i class='bx bx-list-plus' ></i><li>Gerar Novo Orçamento</li></a>
+        </ul>
+        
+
+
+        
+          <p class="span-navpro"><i class='bx bx-wrench' ></i>  Ferramentas</p>
+        <ul class="btn-profile">
+            {{#if dev}}
+            
+            <a href="/user/dev/gerenciar-produtos"><i class='bx bxs-plus-circle'></i><li>Gerenciar Produtos</li></a>
+            <a href="/user/dev/gerenciar-usuarios"><i class='bx bxs-plus-circle'></i><li>Gerenciar Usuários</li></a>
+            {{else}}
+            {{/if}}
+
+            {{#if admin}}
+            <a href="/user/admin/solic-novo"><i class='bx bxs-plus-circle'></i><li>Solicitar Cadastro de Novo Produto</li></a>
+            {{else}}
+            {{/if}}
+            {{#if usuario}}
+            <a href="/user/user/produtos-disponiveis"><i class='bx bx-tag-alt'></i><li>Verificar Produtos Disponíveis</li></a>
+            {{else}}
+            {{/if}}
+            <a href="/user/info"><i class='bx bxs-error-circle' ></i><li>Informações</li></a>
+        </ul>
+
+
+
+          <p class="span-navpro"> <i class='bx bxs-wrench' ></i>  Opcões</p>
+        <ul class="btn-profile">
+            <a href="/user/"><i class='bx bx-cog' ></i><li>Configurações de Conta</li></a>
+        {{#if admin}}
+            <a href="/user/admin/usuarios-cadastrados"><i class='bx bxs-key' ></i><li>Usuários Relacionados</li></a>
+            {{else}}
+            {{/if}}
+         
+            <a href="/user/logout"><i class='bx bx-power-off' ></i><li>Sair</li></a>
+                </ul>
+            </nav>
+{{else}}
+{{/if}}
+                <a id="logo" href="/"><img id="header-img" src="/img/storm.svg" alt="Logo da Storm, toque ou clique aqui sempre que precisar voltar à página inicial"></a>
+        </nav>
+    <nav id="menuscabecalho">
+
+                <nav id="botoesmenu">
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true"
+                aria-controls="menu" aria-expanded="false">
+
+                    <span id="icon"></span>
+                </button>
+            
+            
+                <ul id="cadamenu">
+                    <li><a href="/">Produtos</a></li>
+                    <li><a href="/">Portfólio</a></li>
+                    <li><a href="/">Sobre</a></li>
+                    <li><a href="/">Contato</a></li>
+                
+                </ul>
+
+            
+                <button aria-label="perfil" id="btn-perfil" aria-haspopup="true"
+                aria-controls="opcoes-de-perfil" aria-expanded="false">{{#if user}}{{user.Pnome}}{{else}}<i class='bx bxs-user' ></i> <i class='bx bx-dots-vertical'></i>{{/if}}
+                <span id="icon-perfil"></span>
+            </button>
+                </nav>
+            <nav id="opperfil">
+            <ul id="pagperfil">
+                {{#if user}}
+            <li><a href="/user/">Gerenciar <i class='bx bxs-user-account'></i></a></li>
+                <li><a href="/user/logout">sair <i class='bx bx-log-out'></i></a></li>
+                {{else}}
+                <li><a href="/user/sigin">Cadastrar-se <i class='bx bx-log-in-circle'></i></a></li>
+                <li><a href="/user/login">Entrar <i class='bx bx-log-in'></i></a> </li>
+                {{/if}}
+            
+            
+                </ul>
+            </nav>
+    </nav>
+    </header> 
+<div id="line"></div>
+
+
+
+<script src="/js/header.js"></script>
+</body>
+</html>
+
+
+
+

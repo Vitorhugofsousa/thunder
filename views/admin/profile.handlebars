@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+      <title>Perfil e Configurações de Conta</title>
+
+   <link rel="stylesheet" href="/css/perfil.css">
+</head>
+<body>
+    
+<h2>Página de perfil:</h2>
+<p>Seja bem vindo {{user.Pnome}}! Aqui você pode editar ou atualizar os seus dados sempre que precisar!</p>
+<button class="accordion">{{user.Pnome}} {{user.Snome}}</button>
+<div class="panel">
+    <p> Seu E-mail: {{user.email}}</p>
+    <p>Data de nascimento: {{user.dataN}}</p>
+    <br>
+</div>
+
+<button class="accordion">Localização</button>
+<div class="panel">
+  <p>Sua localização Atual:</p>
+  <p>Estado: {{user.localizacaoE}}</p>
+  <p>Cidade: {{user.localizacaoC}}</p>
+
+<p>Precisa Mudar a sua Localização?</p>
+   <form action="/user/" method="post">
+<label for="localizacao">Insira seu nova localização</label>
+<input class="input-submit" type="text" name="cidade" id="cidade">
+<label for="localizacao">Insira seu nova localização</label>
+<input class="input-submit" type="text" name="cidade" id="cidade">
+<button class="btn-submit" type="submit"> Enviar</button>
+  </form>
+  <br>
+</div>
+
+<button class="accordion">Senha</button>
+<div class="panel">
+
+<p>Mude sua senha:</p>
+  <form action="/user/" method="post">
+<label for="email">Insira sua nova senha</label>
+<input class="input-submit" type="password" name="password" id="password" placeholder=" Insira sua nova senha">
+<label for="email">Repita sua nova senha</label>
+<input class="input-submit" type="password" name="confirmpassword" id="confirmpassword" placeholder=" Repita sua nova senha">
+<button class="btn-submit" type="submit"> Enviar</button>
+  </form>
+<br>
+</div>
+
+{{#if usuario}}
+<button class="accordion">Cadastrar chave de Administrador</button>
+<div class="panel">
+  <p>cadastre a chave de usuario Administrador: </p>
+    
+  <form action="" method="post">
+<label for="email">Insira a Chave de cadastro:</label>
+<input class="input-submit" type="email" name="adminkey" id="adminkey" placeholder="Digite a chave de Administrador">
+<button type="submit" class="btn-submit"> Enviar</button>
+  </form>
+  <br>
+</div>
+{{else}}
+{{/if}}
+<script src="/js/profile.js"></script>
+
+</body>
+</html>

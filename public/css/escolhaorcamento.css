@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+#meio{
+    display: flex;
+    justify-content: center;
+}
+ 
+#choiceform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #083358;
+    width: 80%;
+    border-radius: 20px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+    #shortform{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px; 
+    padding-right: 3rem;
+    border-right: 0.4px #fff solid;
+}
+
+#completeform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: -20px;
+   
+}
+
+#texto {
+    color:  #fff;
+    font-family: 'PT Serif', serif;
+    font-weight: 400;
+}
+
+#choiceform button {
+    border-width: 4px;
+    border-color: #fff;
+    border-radius: 15px;
+    padding: 0.5rem 3rem;
+    background-color: #083359;
+    cursor: pointer;
+   border-style: solid;
+   color: #fff;
+   text-decoration: none;
+   font-family: 'PT Serif', serif;
+   font-weight: 400;
+   font-size: medium;
+    
+}
+
+#choiceform button:hover{
+    background-color: #ffffff;
+    
+        color: #083359;
+
+}
+
+
+@media (max-width: 900px){
+    #choiceform {
+        width: 90%;
+        padding: 1rem;
+    }
+    #completeform {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 750px)  {
+    #choiceform {
+        flex-direction: column;
+        gap: 2rem;
+        
+    }
+    #shortform {
+        border: none;
+    }
+}
