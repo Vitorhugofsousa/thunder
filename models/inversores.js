@@ -57,6 +57,6 @@ const Inversores = db.sequelize.define('inversores',{
 Inversores.belongsTo(Categoria, {foreignKey:'idCategoria', allowNull:false});
 
 
-Inversores.sync({force: true})
+//Inversores.sync({force: true})
 
 module.exports = Inversores;
