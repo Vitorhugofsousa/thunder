@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const sequelize = require('Sequelize');
 const db = require("./db")
 
 const Categoria = db.sequelize.define("categoria", {
@@ -11,7 +10,7 @@ const Categoria = db.sequelize.define("categoria", {
 })
 
 
-//Categoria.sync({force: true})
+//Categoria.sync()
 
 
 module.exports = Categoria
