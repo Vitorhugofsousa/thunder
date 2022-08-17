@@ -18,6 +18,39 @@ router.get('/gerenciar-produtos', eDev, (req, res) => {
     })
     
   }
+
+router.post('/gerenciar-produtos', eDev, (req, res)=>{
+
+  var dado =  "%"+req.body.dados+"%";
+    var carregar = req.body.carregar;
+    var categoriaTrue = req.body.categoriaTrue;
+    if(carregar){
+        Produto.findAll({include:[{attributes:['nome'], model:Categoria}]}).then(produtos =>{
+          console.log(produtos)
+            return res.send({produtos:produtos})
+        })
+    }else{
+        if(categoriaTrue){
+            var idTipo = req.body.tipoCategoria
+            Produto.findAll({include:[{attributes:['nome'], model:Categoria,where:{id:idTipo}}]}).then(produtos => {
+                return res.send({produtos:produtos})
+            })
+        }else{ 
+            var tipoPesquisa = req.body.tipo;     
+            if(tipoPesquisa == 'modelo'){
+                Produto.findAll({where:{modelo:{[Op.like]:dado}},include:[{attributes:['nome'], model:Categoria}]}).then(produtos =>{
+                return res.send({produtos:produtos})
+                })
+            }
+            if(tipoPesquisa == 'marca'){
+                Produto.findAll({where:{marca:{[Op.like]:dado}},include:[{attributes:['nome'], model:Categoria}]}).then(produtos =>{
+                    res.send({produtos:produtos})
+                })
+            }
+            
+        }
+    }
+})
     
 })
 router.get('/novo-produto', eDev, (req, res) => {

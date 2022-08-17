@@ -60,5 +60,5 @@ app.use('/user', user)
 //outras config
 const PORT = 8080
 app.listen(PORT,() => {
-    console.log('servidor rodando!')
+    console.log('servidor rodando! http://localhost:'+PORT)
 })

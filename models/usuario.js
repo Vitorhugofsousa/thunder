@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const sequelize = require('Sequelize');
 const db = require('./db');
 
 const Usuario = db.sequelize.define('usuarios', {
@@ -44,13 +43,13 @@ const Usuario = db.sequelize.define('usuarios', {
         allowNull: false
     },
     virtude: {
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         defaultValue: 0
     }
 
 })
 
-//Usuario.sync({force: true})
+//Usuario.sync()
 
 
 module.exports = Usuario;

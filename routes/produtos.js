@@ -13,52 +13,6 @@ router.get("/", (req, res)=>{
 })
 
 
-router.get("/categoria", (req, res)=>{
-    //var para falar se tem produtos ou não
-    var semProd = false;
-    //var recebendo session do id categoria
-    var categoria = req.session.categoria;
-    //var para verificar se user escolheu alguma categoria
-    var Categoriapes = req.session.categoriapes;
-    if(Categoriapes){
-        //resetando sessions
-        req.session.categoria = null;
-        req.session.categoriapes = false;
-        //puxando tabela produto, mas produto especificos
-        Produto.findAll({include:[{attributes:['nome'], model:Categoria,where:{id:categoria}}]}).then((produtos)=>{
-            //puxando tabela categoria
-            Categoria.findAll().then((categorias)=>{
-                //verificando se existe algum produto  
-                if(produtos.length > 0){
-                    semProd = true;
-                }
-                //renderizando arquivo
-                return res.render("../views/produtoCategoria.hbs",{semProd:semProd,prodcat:true, categorias:categorias, produto:produtos});
-            })
-        })
-    }else{ 
-        //puxando tabela produto 
-        Produto.findAll({include:[{attributes:['nome'], model:Categoria}]}).then((produtos)=>{
-            Categoria.findAll().then((categorias)=>{
-                if(produtos.length > 0){
-                    semProd = true;
-                }
-                //render para rota /produto/categoria
-                return res.render("../views/produtoCategoria.hbs",{semProd:semProd,prodcat:true, categorias:categorias, produto:produtos})
-            })
-        
-        })
-    }
-})
-
-router.post("/categoria", (req, res)=>{
-    //criando sessãos e  retornando para rota get
-    req.session.categoriapes = true;
-    req.session.categoria = req.body.idcate;
-    
-    res.redirect("/produto/categoria")
-})
-
 router.post("/add", (req, res)=>{
     const novoProduto = {
         valor:req.body.valor,
