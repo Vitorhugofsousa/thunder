@@ -16,6 +16,7 @@ const db = require("./models/db");
 const Usuario = require("./models/usuario");
 const categoria = require("./models/Categorias");
 const inversores = require("./models/inversores");
+const modulosfv = require("./models/modulos-fv");
 
 
 //////CONFIGURAÇÕES DE MÓDULOS
